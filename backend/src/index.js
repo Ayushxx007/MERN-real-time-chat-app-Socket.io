@@ -2,6 +2,8 @@ const express=require('express');
 const cors=require('cors');
 const dotenv=require('dotenv');
 const  router=require('./routes/auth.route.js');
+const  messageRouter=require('./routes/message.route.js');
+
 const connectionDB=require("./lib/db.js");
 const cookieParser = require("cookie-parser");
 
@@ -10,9 +12,6 @@ const cookieParser = require("cookie-parser");
 const app=express();
 dotenv.config();
 const PORTX=process.env.PORT;
-
-
-
 
 
 
