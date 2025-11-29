@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 app.listen(PORTX,()=>{
     console.log(`listening on ${PORTX}`);
-    connectionDB();
+    connectionDB();  //x
 
 });
 
