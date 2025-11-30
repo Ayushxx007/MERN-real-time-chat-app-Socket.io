@@ -1,10 +1,11 @@
 import {create} from "zustand";
 import {axiosInstance} from "../lib/axios.js";
 import toast from "react-hot-toast";
-import { io } from "socket.io-client";
+
+//import { io } from "socket.io-client";
 
 
-export  const useAuthStore=create((set,get)=>({
+export  const useAuthStore=create((set)=>({
 
     authUser:null,
     isSigningUp:false,
@@ -16,7 +17,7 @@ export  const useAuthStore=create((set,get)=>({
 
         try{
 
-            const res=axiosInstance.get("/auth/check");
+            const res= await axiosInstance.get("/auth/check");
             set({authUser:res.data});
 
         }catch(error){
@@ -33,7 +34,7 @@ export  const useAuthStore=create((set,get)=>({
       const res = await axiosInstance.post("/auth/signup", data);
       set({ authUser: res.data });
       toast.success("Account created successfully");
-       get().connectSocket();
+       // get().connectSocket();
      
     } catch (error) {
       toast.error(error.response.data.message);
@@ -41,6 +42,53 @@ export  const useAuthStore=create((set,get)=>({
       set({ isSigningUp: false });
     }
   },
+  login:async(data)=>{
+
+    set({isLoggingIn:true});
+
+    try{
+       const res = await axiosInstance.post("/auth/login", data);
+        set({ authUser: res.data });
+        toast.success("Login successful");
+
+
+    }catch(error){
+      toast.error(error.response.data.message);
+
+
+
+    }finally{
+       set({isLoggingIn:false})
+
+    }
+
+
+
+  }
+
+
+
+
+
+
+
+  ,
+  logout:async()=>{
+    try{
+        await axiosInstance.post("/auth/logout");
+       set({authUser:null});
+       toast.success("Logout successfully");
+
+
+    }catch(error){
+        toast.error(error.response.data.message);
+
+
+    }
+
+
+
+  }
 }));
 
 
