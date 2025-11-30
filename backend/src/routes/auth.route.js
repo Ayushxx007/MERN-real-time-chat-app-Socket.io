@@ -8,7 +8,6 @@ const router=express.Router();
 
 module.exports= router;
 
-
 router.post("/signup",signup);
 router.post("/login",login);
 router.post("/logout",logout);
