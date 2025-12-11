@@ -180,12 +180,6 @@ const updateProfile=async(req,res)=>{
 
 
 
-
-  
-
-
-
-
   }catch(error){
 
     console.log("error in update profile");
