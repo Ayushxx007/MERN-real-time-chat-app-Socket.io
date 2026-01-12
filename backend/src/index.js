@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 
 const app=express();
 dotenv.config();
-const PORTX=process.env.PORT; //portconfig..
+const PORTX=process.env.PORT; //portconfig...
 
 
 
