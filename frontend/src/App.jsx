@@ -23,7 +23,7 @@ const App = () => {
 
   },[]);
 
-  console.log({authUser});
+  console.log({authUser}); //frontend..
 
   if(isCheckingAuth && !authUser){
 
