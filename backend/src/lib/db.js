@@ -21,7 +21,7 @@ const connectionDB= async()=>{
 
   
 
-//dbx
+//dbxc
 }
 
 module.exports=connectionDB;
