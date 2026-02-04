@@ -15,7 +15,7 @@ import {Loader} from "lucide-react";
 import { Navigate } from 'react-router-dom';
 
 const App = () => {
-  //useEffect
+  //useEffect.
 
   const {authUser,checkAuth,isCheckingAuth} =useAuthStore();
 
